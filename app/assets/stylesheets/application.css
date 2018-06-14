@@ -14,6 +14,11 @@
  *= require_self
  */
 
+.form-check.form-check-inline {
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
 .fadein {
 	animation: fadein 1s forwards;
 }
@@ -21,8 +26,6 @@
 .fadeout {
 	animation: fadeout 1s forwards;
 }
-
-
 
 @keyframes fadein {
 	from { opacity: 0; }

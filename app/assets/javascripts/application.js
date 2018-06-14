@@ -14,10 +14,19 @@
 //= require turbolinks
 //= require_tree .
 
+localStorage.setItem('animation', 'fadeout,fadein');
+
+function changeAnim(option) {
+	localStorage.setItem('animation', option.value);
+}
+
 document.addEventListener('turbolinks:request-start', function(){
-	document.querySelector('.main').classList.add('fadeout');
+	var animation_out = localStorage.getItem('animation');
+	document.querySelector('.main').classList.add(animation_out.split(",")[0]);
 })
 
 document.addEventListener('turbolinks:render', function(){
-	document.querySelector('.main').classList.add('fadein');
+	var animation_in = localStorage.getItem('animation');
+	document.querySelector('.main').classList.add(animation_in.split(",")[1]);
+	document.querySelector(`[value="${animation_in}"]`).checked = true;
 })
